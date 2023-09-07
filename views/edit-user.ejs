@@ -1,0 +1,156 @@
+<style>
+    .container {
+        max-width: 1280px;
+        margin: auto;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    li,
+    a,
+    button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
+    }
+
+    h1 {
+        padding: 15px;
+    }
+
+    .logo {
+        cursor: pointer;
+        margin-right: auto;
+        color: #333;
+    }
+
+    .nav__links {
+        list-style: none;
+    }
+
+    .nav__links li {
+        display: inline-block;
+
+    }
+
+    .nav__links li a {
+        transition: all 0.3s ease 0s;
+        padding: 0 20px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .nav__links li a:hover {
+        color: #0088a9;
+    }
+
+    button {
+        padding: 9px 25px;
+        background-color: rgba(0, 136, 169, 1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        margin-left: 20px;
+    }
+
+    button:hover {
+        background-color: rgba(0, 136, 169, 1);
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .card {
+        width: 500px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h2 {
+        color: #007BFF;
+        margin-bottom: 20px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        text-align: left;
+        margin-bottom: 5px;
+    }
+
+    input {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #007BFF;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .switch {
+        margin-top: 15px;
+        font-size: 14px;
+    }
+
+    .switch a {
+        color: #007BFF;
+        text-decoration: none;
+    }
+</style>
+
+<div class="container">
+    <%- include('./header.ejs') %>
+            <div class="card">
+                <div>
+                    <h2>Edit User</h2>
+                    <form action="/users/update-user/<%= selectedUser._id %>" method="POST">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" value="<%= selectedUser.firstName %>" placeholder="Enter your First">
+                        
+                        <label for="secondName">Second Name</label>
+                        <input type="text" id="secondName" name="secondName" value="<%= selectedUser.secondName %>" placeholder="Enter your Second Name">
+                        
+                        <label for="email">Email</label>
+                        <input type="text" id="email" name="email" value="<%= selectedUser.email %>" placeholder="Enter your Email">
+                        
+                        <label for="gender">Gender</label>
+                        <input type="text" id="gender" name="gender" value="<%= selectedUser.gender %>" placeholder="Enter your Gender">
+                        
+                        <button type="submit">Update Update</button>
+                    </form>
+                </div>
+            </div>
+</div>

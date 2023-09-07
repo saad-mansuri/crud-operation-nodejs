@@ -4,7 +4,6 @@ const {usersData} = require('../../models/users')
 
 const getUsers = async (req,res) => {
     const getAllDbUser = await usersData.find({})
-    // console.log('users', usersData);
     res.json(getAllDbUser)
 }
 const getUserById = async (req,res) => {
@@ -18,11 +17,9 @@ const getUserById = async (req,res) => {
 }
 
 const createUser = async (req,res) => {
-    // console.log('res :', req.body);
     if(!req.body || !req.body.first_name || !req.body.last_name || !req.body.email || !req.body.gender){
         return res.status(402).send('All fields are required')        
     }
-    console.log('req.body :', req.body);
     try{
         const result = await usersData.create({
             firstName : req.body.first_name,
@@ -30,13 +27,11 @@ const createUser = async (req,res) => {
             email : req.body.email,
             gender : req.body.gender 
         })
-        console.log('result :', result);
         return res.status(201).json('User Created')
     }catch(err){
         if(err.code === 11000 && err.keyPattern.email){
             return res.status(400).json({error : 'Email already exist'})
         }
-        console.log(err + 'Error creating user');
         return res.status(500).json({error : 'Inernal Server Error' })
     }
 }

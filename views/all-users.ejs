@@ -1,0 +1,134 @@
+<style>
+    .container {
+        max-width: 1280px;
+        margin: auto;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    li,
+    a,
+    button {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: #edf0f1;
+        text-decoration: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 15px;
+    }
+
+    h1 {
+        padding: 15px;
+    }
+
+    .logo {
+        cursor: pointer;
+        margin-right: auto;
+        color: #333;
+    }
+
+    .nav__links {
+        list-style: none;
+    }
+
+    .nav__links li {
+        display: inline-block;
+
+    }
+
+    .nav__links li a {
+        transition: all 0.3s ease 0s;
+        padding: 0 20px;
+        color: #333;
+        font-weight: 600;
+    }
+
+    .nav__links li a:hover {
+        color: #0088a9;
+    }
+
+    button {
+        padding: 9px 25px;
+        background-color: rgba(0, 136, 169, 1);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s;
+        margin-left: 20px;
+    }
+
+    button:hover {
+        background-color: rgba(0, 136, 169, 1);
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        color: #333;
+    }
+
+    tr:hover {
+        background-color: #f5f5f5;
+    }
+
+    /* Optional: Add some spacing to the table */
+    .table-container {
+        margin: 20px;
+    }
+</style>
+
+<div class="container">
+    <%- include('./header.ejs') %>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr No.</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% allUsers.forEach(function(user, index) { %>
+                <tr>
+                        <td><%= user._id %></td>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.secondName %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.gender %></td>
+                        <td>
+                            <a href="/users/<%= user._id %>"><Button>Edit</Button></a>
+                            <a href="/users/delete-user/<%= user._id %>"><Button>delete</Button></a></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
