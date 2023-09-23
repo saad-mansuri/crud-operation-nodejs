@@ -99,36 +99,56 @@
     .table-container {
         margin: 20px;
     }
+    .add-user{
+        text-align: end;
+        padding-right: 20px;
+    margin: 30px 0;
+    }
+    .add-user button{
+        background: transparent;
+    border: 1px solid #333;
+    /* border-radius: 8px; */
+    color: #333;
+    }
 </style>
 
 <div class="container">
-    <%- include('./header.ejs') %>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Sr No.</th>
-                    <th>First Name</th>
-                    <th>Second Name</th>
-                    <th>Email</th>
-                    <th>Gender</th>
-                    <th colspan="2">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% allUsers.forEach(function(user, index) { %>
-                <tr>
-                        <td><%= user._id %></td>
-                        <td><%= user.firstName %></td>
-                        <td><%= user.secondName %></td>
-                        <td><%= user.email %></td>
-                        <td><%= user.gender %></td>
-                        <td>
-                            <a href="/users/<%= user._id %>"><Button>Edit</Button></a>
-                            <a href="/users/delete-user/<%= user._id %>"><Button>delete</Button></a></td>
+    <div>
+        <%- include('./header.ejs') %>
+    </div>
+    <div class="add-user">
+        <a href="/users/add-user">
+            <button>Add User</button>   
+        </a>
+    </div>
+    <div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>First Name</th>
+                        <th>Second Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th colspan="2">Action</th>
                     </tr>
-                    <% }); %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <% allUsers.forEach(function(user, index) { %>
+                    <tr>
+                            <td><%= user._id %></td>
+                            <td><%= user.firstName %></td>
+                            <td><%= user.secondName %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.gender %></td>
+                            <td>
+                                <a href="/users/edit/<%= user._id %>"><Button>Edit</Button></a>
+                                <a href="/users/delete-user/<%= user._id %>"><Button>delete</Button></a></td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

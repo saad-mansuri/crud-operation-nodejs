@@ -135,21 +135,21 @@
     <%- include('./header.ejs') %>
             <div class="card">
                 <div>
-                    <h2>Edit User</h2>
-                    <form action="/users/update-user/<%= selectedUser._id %>" method="POST">
+                    <h2>Add User</h2>
+                    <form action="/users/add-new-user" method="POST">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" name="firstName" value="<%= selectedUser.firstName %>" placeholder="Enter your First">
+                        <input type="text" id="firstName" name="firstName" placeholder="Enter your First">
                         
                         <label for="secondName">Second Name</label>
-                        <input type="text" id="secondName" name="secondName" value="<%= selectedUser.secondName %>" placeholder="Enter your Second Name">
+                        <input type="text" id="secondName" name="secondName" placeholder="Enter your Second Name">
                         
                         <label for="email">Email</label>
-                        <input type="text" id="email" name="email" value="<%= selectedUser.email %>" placeholder="Enter your Email">
+                        <input type="text" id="email" name="email" placeholder="Enter your Email">
                         
                         <label for="gender">Gender</label>
-                        <input type="text" id="gender" name="gender" value="<%= selectedUser.gender %>" placeholder="Enter your Gender">
+                        <input type="text" id="gender" name="gender" placeholder="Enter your Gender">
                         
-                        <button type="submit">Update User</button>
+                        <button type="submit">Add User</button>
                     </form>
                 </div>
             </div>

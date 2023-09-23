@@ -50,7 +50,7 @@ const deleteUser = async (req,res) => {
 const editUser = async (req,res) => {
     // const id = req.params.id
     // const userIndex = usersData.findIndex(user => user.id == id)
-    console.log('req.body', req.body);
+    // console.log('req.body', req.body);
     // const updateUserData = {
         // firstName : req.body.first_name, secondName: req.body.last_name, email: req.body.email, gender:req.body.gender
     // }
